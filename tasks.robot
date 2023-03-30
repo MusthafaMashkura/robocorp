@@ -8,9 +8,10 @@ Library             RPA.PDF
 
 
 *** Variables ***
-${url}          https://robotsparebinindustries.com
-${username}     maria
-${password}     thoushallnotpass
+${url}              https://robotsparebinindustries.com
+${username}         maria
+${password}         thoushallnotpass
+${Excelfile_URL}    https://robotsparebinindustries.com/SalesData.xlsx
 
 
 *** Tasks ***
@@ -35,7 +36,7 @@ Login
     Wait Until Page Contains Element    id:sales-form
 
 Download the Excel file
-    Download    https://robotsparebinindustries.com/SalesData.xlsx    overwrite=True
+    Download    ${Excelfile_URL}    overwrite=True
 
 Fill and submit the form for one person
     [Arguments]    ${sales_rep}
